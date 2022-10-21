@@ -8,10 +8,11 @@ class VenuesController < ApplicationController
   end
 
   def show
-    venue_id = params.fetch("an_id")
-    matching_venues = Venue.where({ :id => venue_id })
+    @venue_id = params.fetch("an_id")
+    matching_venues = Venue.where({ :id => @venue_id })
     @the_venue = matching_venues.at(0)
-
+    puts "getting all user ids:"
+    @user_ids = User.all_user_ids
     render({ :template => "venue_templates/details.html.erb" })
   end
 
@@ -26,22 +27,22 @@ class VenuesController < ApplicationController
   end
   
   def update
-    the_id = params.fetch("venue_id")
+    the_id = params.fetch("the_id")
 
-    @venue = Venue.where({ :id => the_id })
-    venue.address = params.fetch("query_address")
-    venue.name = params.fetch("Query_name")
-    venue.neighborhood = params.fetch("query_neighborhood")
-    venue.save
+    @venue = Venue.where({ :id => the_id }).at(0)
+    @venue.address = params.fetch("query_address")
+    @venue.name = params.fetch("query_name")
+    @venue.neighborhood = params.fetch("query_neighborhood")
+    @venue.save
     
-    redirect_to("/venues/#{venue.id}")
+    redirect_to("/venues/#{@venue.id}")
   end
 
-  def destroy
+  def delete
     the_id = params.fetch("venue_id")
     matching_venues = Venue.where({ :id => the_id })
     venue = matching_venues
-    venue.destroy
+    Venue.destroy(the_id)
 
     redirect_to("/venues")
   end

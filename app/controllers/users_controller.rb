@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     username = params.fetch("username")
     matching_users = User.where({ :username => username })
     @user = matching_users.at(0)
+  #@address = @user.address
+  @name = @user.username
+  #@neighborhood = @user.neighborhood
 
     render({ :template => "user_templates/user_details.html.erb"})
   end

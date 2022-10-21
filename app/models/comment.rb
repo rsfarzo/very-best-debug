@@ -11,6 +11,7 @@
 #
 
 class Comment < ApplicationRecord
+  #validates :id, presence: true
   def commenter
     my_id = self.id
     matching_users = User.where({ :id => my_id })

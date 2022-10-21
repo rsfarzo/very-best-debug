@@ -32,4 +32,9 @@ class User < ApplicationRecord
 
     return unique_matching_venues
   end
+
+  def self.all_user_ids
+    return User.pluck(:id)
+  end
+
 end

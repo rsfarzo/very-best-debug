@@ -44,4 +44,5 @@
   "emmet.includeLanguages": {
     "erb": "html"
   },
+  "files.autoSave": "off",
 }
