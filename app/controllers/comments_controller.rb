@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     puts "saving new comment"
     comment = Comment.new
     #comment.author_id = params.fetch("query_author_id")
-    comment.author_id = params.fetch("uid")
+    comment.author_id = params.fetch("query_user_id") #uid")
     comment.venue_id = params.fetch("query_venue_id")
     comment.body = params.fetch("query_body")
     if (comment.save)

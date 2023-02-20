@@ -76,16 +76,11 @@
 
 <form action="/insert_comment_record">
   <label for="browser_venue_id">Venue ID</label>
-  <input readonly id="browser_venue_id" type="text" value="<%= @the_venue.id %>" name="query_venue_id">
+  <input  id="browser_venue_id" type="text" value="<%= @the_venue.id %>" name="query_venue_id">
 
   <label for="browser_author_id">Author ID</label>
-  <select name="uid" id="uid">
-  <% @user_ids.each do |u| %>
-    <option value=<%= u %> > <%=u%></option>
-  <% end %>
-  </select>
-  <!-- <input id="browser_author_id" type="text" name="query_author_id">
-  -->
+  <input id="browser_venue_id" type="text" value='88' name="query_user_id">
+
   <label for="browser_comment">Comment</label>
   <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
 
